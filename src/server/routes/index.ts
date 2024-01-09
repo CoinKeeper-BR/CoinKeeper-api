@@ -1,16 +1,14 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import { GastosController } from '../../controllers';
 
 const router = Router();
 
-router.get('/', (_, res) => {
-	res.send('Deu bom!');
+router.get('/', (req, res) => {
+	res.send('Hello World!');
 });
 
-router.post('/teste', (req, res) => {
-	console.log(req.body);
-	return res.status(StatusCodes.ACCEPTED).json(req.body);
-});
+router.post('/gastos', GastosController.create);
 
 
 
